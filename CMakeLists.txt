@@ -1,11 +1,11 @@
 #files
 
 file(GLOB EssexEngineNetworkDaemon_HEADERS
-    "src/Daemons/Network/*.h"
+    "src/Daemons/NetworkDaemon/*.h"
 )
 file(GLOB EssexEngineNetworkDaemon_SRC
     ${EssexEngineNetworkDaemon_HEADERS}
-    "src/Daemons/Network/*.cpp"
+    "src/Daemons/NetworkDaemon/*.cpp"
 )
 
 #setup headers
