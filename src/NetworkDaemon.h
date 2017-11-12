@@ -12,6 +12,7 @@
 
 #include <EssexEngineNetworkDaemon/INetworkDriver.h>
 #include <EssexEngineCore/BaseDaemon.h>
+#include <EssexEngineCore/LogDaemon.h>
 
 namespace EssexEngine{
 namespace Daemons{
@@ -23,8 +24,8 @@ namespace Network{
         ~NetworkDaemon();
         
         void Init() {
-            if(GetContext()->HasDriver<Core::Logging::ILogDriver>()) {
-                GetContext()->GetDriver<Core::Logging::ILogDriver>()->LogLine(
+            if(GetContext()->HasDaemon<Core::Logging::LogDaemon>()) {
+                GetContext()->GetDaemon<Core::Logging::LogDaemon>()->LogLine(
                     "Loading Daemon [%s] [%s]",
                     GetDaemonName().c_str(),
                     GetDaemonVersion().c_str()
