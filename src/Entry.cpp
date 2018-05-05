@@ -11,6 +11,16 @@
 
 #include <EssexEngineNetworkDaemon/NetworkDaemon.h>
 
-EssexEngine::Daemons::Network::NetworkDaemon::NetworkDaemon(WeakPointer<Context> _context):BaseDaemon(_context) {}
+using EssexEngine::Context;
+using EssexEngine::WeakPointer;
 
-EssexEngine::Daemons::Network::NetworkDaemon::~NetworkDaemon() {}
+using EssexEngine::Daemons::Network::NetworkDaemon;
+
+extern "C" {
+    void daemon_init(WeakPointer<Context> context) {
+        context->RegisterDaemon<NetworkDaemon>(
+            new NetworkDaemon(context)
+        );
+    }
+}
+
